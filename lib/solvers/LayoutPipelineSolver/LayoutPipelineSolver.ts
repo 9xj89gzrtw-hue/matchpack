@@ -280,11 +280,7 @@ export class LayoutPipelineSolver extends BaseSolver {
     // phase has failed/solved before reaching `phase`, step() becomes a
     // no-op and the bare phase-check loop would spin forever and block the
     // event loop (see #267).
-    while (
-      !this.solved &&
-      !this.failed &&
-      this.getCurrentPhase() !== phase
-    ) {
+    while (!this.solved && !this.failed && this.getCurrentPhase() !== phase) {
       this.step()
     }
   }
